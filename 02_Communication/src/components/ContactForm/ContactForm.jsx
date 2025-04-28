@@ -15,7 +15,7 @@ function ContactForm() {
 
   const onSubmit = (event)=>{
     event.preventDefault()
-    console.log(event);
+    // console.log(event);
   }
 
 
