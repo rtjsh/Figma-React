@@ -1,0 +1,9 @@
+.contact_section h1{
+    font-weight: 800;
+    font-size: 40px;
+}
+
+.contact_section p{
+    font-weight: 600;
+    color: var(--gray);
+}

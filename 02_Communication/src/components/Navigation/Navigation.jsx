@@ -5,8 +5,7 @@ const Navigation=()=>{
     console.log(styles);
     
     return(
-       <nav className={styles.navigation}>
-        {/* <nav className="container"> */}
+       <nav className={`container ${styles.navigation}`}>
         <div className="logo">
             <img src="/images/Frame 2 1.png" alt="" />
         </div>
