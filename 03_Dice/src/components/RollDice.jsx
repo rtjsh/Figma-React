@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-function RollDice({currentDice, setcurrentDice}) {
 
-    
-
-    
-    
-
-
+function RollDice({currentDice, Rolldice}) {
   return (
     <DiceContainer>
-      <div className='dice' onClick={RollDice}>
+      <div className='dice' onClick={Rolldice}>
         <img src={`/images/Dice/dice_${currentDice}.png`} alt="dice1" />
       </div>
       <p>Click on Dice to roll</p>
