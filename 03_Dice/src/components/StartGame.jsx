@@ -3,13 +3,15 @@ import styled from "styled-components"
 
 
 
-function StartGame() {
+function StartGame({toggle}) {
   return (
     <Container>
       <img src='/images/dices1.png'/>
       <div className='content'>
         <h1>DICE GAME</h1>
-        <Button>Play now</Button>
+        <Button
+        onClick={toggle}
+        >Play now</Button>
       </div>
     </Container>
   )
