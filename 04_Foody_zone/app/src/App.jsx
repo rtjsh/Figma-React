@@ -48,9 +48,11 @@ function App() {
       setSelectedBtn("all");
       return;
     }
-    const filter = data?.filter((food) => food.type.toLowerCase().includes(type.toLowerCase()));
-      setFilteredData(filter)
-      setSelectedBtn(type)
+    const filter = data?.filter((food) =>
+      food.type.toLowerCase().includes(type.toLowerCase())
+    );
+    setFilteredData(filter);
+    setSelectedBtn(type);
   };
 
   // Structure of the data fetched from the API
@@ -85,18 +87,10 @@ function App() {
           </div>
         </TopContainer>
         <FilterContainer>
-          <Button
-          onClick={()=>filterFood("all")}
-          >All</Button>
-          <Button
-          onClick={()=>filterFood("breakfast")}
-          >Breakfast</Button>
-          <Button
-          onClick={()=>filterFood("lunch")}
-          >Lunch</Button>
-          <Button
-          onClick={()=>filterFood("dinner")}
-          >Dinner</Button>
+          <Button onClick={() => filterFood("all")}>All</Button>
+          <Button onClick={() => filterFood("breakfast")}>Breakfast</Button>
+          <Button onClick={() => filterFood("lunch")}>Lunch</Button>
+          <Button onClick={() => filterFood("dinner")}>Dinner</Button>
         </FilterContainer>
       </Container>
       <SearchResult data={filteredData} />

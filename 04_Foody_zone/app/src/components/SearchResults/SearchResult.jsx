@@ -7,23 +7,23 @@ const SearchResult = ({ data: foods }) => {
     <div>
       <FoodCardContainer>
         <Container>
-        <FoodCards>
-          {foods?.map(({ name, image, text, price }) => (
-            <FoodCard>
-              {/* key= {name} */}
-              <div className="food_image">
-                <img src={BASE_URL + image} />
-              </div>
-              <div className="food_info">
-                <div className="info">
-                  <h3>{name}</h3>
-                  <p>{text}</p>
+          <FoodCards>
+            {foods?.map(({ name, image, text, price }) => (
+              <FoodCard>
+                {/* key= {name} */}
+                <div className="food_image">
+                  <img src={BASE_URL + image} />
                 </div>
-                <Button>${price.toFixed(2)}</Button>
-              </div>
-            </FoodCard>
-          ))}
-        </FoodCards>
+                <div className="food_info">
+                  <div className="info">
+                    <h3>{name}</h3>
+                    <p>{text}</p>
+                  </div>
+                  <Button>${price.toFixed(2)}</Button>
+                </div>
+              </FoodCard>
+            ))}
+          </FoodCards>
         </Container>
       </FoodCardContainer>
     </div>
@@ -39,16 +39,17 @@ const FoodCardContainer = styled.section`
 `;
 
 const FoodCards = styled.div`
-display: flex;
+  display: flex;
   flex-wrap: wrap;
   row-gap: 32px;
   column-gap: 20px;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;`;
+  padding-top: 80px;
+`;
 
 const FoodCard = styled.div`
-width: 340px;
+  width: 340px;
   height: 167px;
   border: 0.66px solid;
 
