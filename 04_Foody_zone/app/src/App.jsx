@@ -1,7 +1,58 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
+const BASE_URL = "http://localhost:9000/"
 function App() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  
+
+  useEffect(()=>{
+    const fetchFoodData = async ()=>{
+
+      setLoading(true)
+  
+      // Network call
+      try{const response = await fetch(BASE_URL)
+      const json = await response.json()
+  
+      
+      setData(json);
+      setLoading(false)
+    }
+  
+      catch(error){
+        setError("Unable to fetch data")
+  
+      }
+      
+    };
+    fetchFoodData();
+  },[])
+
+  console.log(data);
+
+  // Structure of the data fetched from the API
+//   const temp = [
+//     {
+//         "name": "Boilded Egg",
+//         "price": 10,
+//         "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+//         "image": "/images/egg.png",
+//         "type": "breakfast"
+//     }
+// ]
+  
+
+  if(error) return <div>{error}</div>
+
+  if(loading) return <div>Loading</div>
+  
+    
+  
+  
   return (
     <Container>
       <TopContainer>
@@ -19,7 +70,7 @@ function App() {
           <Button>Lunch</Button>
           <Button>Dinner</Button>
       </FilterContainer>
-
+      
     </Container>
   )
 }
@@ -54,6 +105,7 @@ const FilterContainer = styled.section`
   display: flex;
   justify-content: center;
   gap: 12px;
+  padding-bottom: 40px;
 `;
 
 const Button = styled.button`
@@ -63,3 +115,4 @@ const Button = styled.button`
   border: none;
   color: white;
 `;
+
