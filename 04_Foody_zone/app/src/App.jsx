@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import SearchResult from './components/SearchResults/SearchResult';
 
-const BASE_URL = "http://localhost:9000/"
+export const BASE_URL = "http://localhost:9000"
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false)
@@ -70,7 +71,7 @@ function App() {
           <Button>Lunch</Button>
           <Button>Dinner</Button>
       </FilterContainer>
-      
+      <SearchResult data = {data}/>
     </Container>
   )
 }
@@ -108,7 +109,7 @@ const FilterContainer = styled.section`
   padding-bottom: 40px;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   background-color: #ff4343;
   border-radius: 5px;
   padding: 6px 12px;
