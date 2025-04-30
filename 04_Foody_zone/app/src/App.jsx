@@ -55,7 +55,8 @@ function App() {
   
   
   return (
-    <Container>
+    <>
+      <Container>
       <TopContainer>
           <div className='logo'>
             <img src="/logo.svg" alt="logo" />
@@ -71,9 +72,11 @@ function App() {
           <Button>Lunch</Button>
           <Button>Dinner</Button>
       </FilterContainer>
-      <SearchResult data = {data}/>
+      
     </Container>
-  )
+    <SearchResult data = {data}/>
+    </>
+  ) 
 }
 
 export default App;
