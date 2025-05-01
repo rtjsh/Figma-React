@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import {getFirestore} from "firebase/firestore"
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,10 +14,10 @@ const firebaseConfig = {
   storageBucket: "vite-contact-a4ccf.firebasestorage.app",
   messagingSenderId: "814966592902",
   appId: "1:814966592902:web:43360aa8693a426687c807",
-  measurementId: "G-HS85EMBRRX"
+  measurementId: "G-HS85EMBRRX",
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const db = getFirestore(app)
+export const db = getFirestore(app);
