@@ -6,11 +6,19 @@ import { collection } from "firebase/firestore";
 import ContactCard from "./components/ContactCard";
 import { db } from "./config/firebase";
 import { getDocs } from "firebase/firestore";
+import Modal from "./components/Modal";
 
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
 
+  const [isOpen, setOpen] = useState(false);
+  const onOpen = ()=>{
+    setOpen(true)
+  }
+  const onClose = ()=>{
+    setOpen(false)
+  }
   useEffect(() => {
     const getContacts = async () => {
       try {
@@ -34,6 +42,7 @@ const App = () => {
     getContacts();
   }, []);
   return (
+    <>
     <div className="max-w-[370px] mx-auto px-4">
       <Navbar />
       <div className="flex gap-3">
@@ -44,7 +53,7 @@ const App = () => {
             className="border bg-transparent border-white rounded h-10 flex-grow text-white pl-9"
           />
           <div>
-            <CiCirclePlus className="text-5xl text-white cursor-pointer" />
+            <CiCirclePlus onClick={onOpen} className="text-5xl text-white cursor-pointer" />
           </div>
         </div>
       </div>
@@ -54,6 +63,11 @@ const App = () => {
         ))}
       </div>
     </div>
+    <Modal isOpen={isOpen}
+    onClose={onClose}>
+      HI
+    </Modal>
+    </>
   );
 };
 
