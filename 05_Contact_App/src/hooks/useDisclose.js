@@ -1,16 +1,16 @@
-import React from 'react'
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 
 const useDisclose = () => {
-    const [isOpen, setOpen] = useState(false);
-      const onOpen = ()=>{
-        setOpen(true)
-      }
-      const onClose = ()=>{
-        setOpen(false)
-      }
+  const [isOpen, setOpen] = useState(false);
+  const onOpen = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
 
-  return {onClose, onOpen, isOpen}
-}
+  return { onClose, onOpen, isOpen };
+};
 
-export default useDisclose
+export default useDisclose;

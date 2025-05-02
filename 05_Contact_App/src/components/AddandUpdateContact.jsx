@@ -59,7 +59,7 @@ const AddandUpdateContact = ({ isOpen, onClose, isUpdate, contact }) => {
               <label htmlFor="name">Name</label>
               <Field name="name" className="border h-10" />
               <div className="text-red-500 text-xx">
-                <ErrorMessage name="name"/>
+                <ErrorMessage name="name" />
               </div>
             </div>
 
@@ -67,7 +67,7 @@ const AddandUpdateContact = ({ isOpen, onClose, isUpdate, contact }) => {
               <label htmlFor="email">Email</label>
               <Field name="email" className="border h-10" />
               <div className="text-red-500 text-xx">
-                <ErrorMessage name="email"/>
+                <ErrorMessage name="email" />
               </div>
             </div>
             <button className="bg-orange px-3 py-1.5 border self-end">

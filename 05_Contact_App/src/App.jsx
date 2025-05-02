@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import { FaSearch } from "react-icons/fa";
 import { CiCirclePlus } from "react-icons/ci";
 import { collection, onSnapshot } from "firebase/firestore";
