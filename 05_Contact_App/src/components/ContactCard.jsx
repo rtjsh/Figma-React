@@ -2,9 +2,10 @@ import React from 'react'
 import { RiEditCircleLine } from "react-icons/ri";
 import { IoMdTrash } from "react-icons/io";
 import { HiOutlineUserCircle } from "react-icons/hi";
-import { deleteDoc,doc } from 'firebase/firestore';
+import { doc, deleteDoc } from 'firebase/firestore';
 import AddandUpdateContact from './AddandUpdateContact';
 import useDisclose from '../hooks/useDisclose';
+import { db } from '../config/firebase';
 // import { toast } from "react-toastify";
 
 const ContactCard = ({contact}) => {
