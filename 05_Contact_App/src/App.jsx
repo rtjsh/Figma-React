@@ -2,40 +2,39 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./components/navbar";
 import { FaSearch } from "react-icons/fa";
 import { CiCirclePlus } from "react-icons/ci";
-import { collection } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import ContactCard from "./components/ContactCard";
 import { db } from "./config/firebase";
 import { getDocs } from "firebase/firestore";
 import Modal from "./components/Modal";
 import AddandUpdateContact from "./components/AddandUpdateContact";
+import useDisclose from "./hooks/useDisclose";
 
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
+  const {isOpen, onClose, onOpen} = useDisclose();
 
-  const [isOpen, setOpen] = useState(false);
-  const onOpen = ()=>{
-    setOpen(true)
-  }
-  const onClose = ()=>{
-    setOpen(false)
-  }
   useEffect(() => {
     const getContacts = async () => {
       try {
-        const contactsRef = collection(db, "contacts");
-        const contactsSnapshot = await getDocs(contactsRef);
-        // console.log(contactsSnapshot);
 
-        const contactLists = contactsSnapshot.docs.map((doc) => {
-          return {
-            id: doc.id,
-            ...doc.data(),
-          };
-        });
+        const contactsRef = collection(db, "contacts");
+        onSnapshot(contactsRef,(snapshot)=>{
+          const contactLists = snapshot.docs.map((doc) => {
+            return {
+              id: doc.id,
+              ...doc.data(),
+            };
+          })
+          setContacts(contactLists);
+          return contactLists
+        })
+
+        
         // console.log(contactLists);
 
-        setContacts(contactLists);
+        
       } catch (error) {
         console.log(error);
       }
