@@ -3,8 +3,10 @@ import Navbar from "./components/navbar";
 import { FaSearch } from "react-icons/fa";
 import { CiCirclePlus } from "react-icons/ci";
 import { collection } from "firebase/firestore";
-import { HiOutlineUserCircle } from "react-icons/hi";
+import ContactCard from "./components/ContactCard";
 import { db } from "./config/firebase";
+import { getDocs } from "firebase/firestore";
+
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -14,12 +16,16 @@ const App = () => {
       try {
         const contactsRef = collection(db, "contacts");
         const contactsSnapshot = await getDocs(contactsRef);
+        // console.log(contactsSnapshot);
+
         const contactLists = contactsSnapshot.docs.map((doc) => {
           return {
             id: doc.id,
             ...doc.data(),
           };
         });
+        // console.log(contactLists);
+
         setContacts(contactLists);
       } catch (error) {
         console.log(error);
@@ -42,16 +48,10 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div>
-        {contacts.map((contact) => {
-          <div key={contact.id}>
-            <HiOutlineUserCircle />
-            <div className="">
-              <h2 className="">{contact.name}</h2>
-              <p className=""></p>
-            </div>
-          </div>;
-        })}
+      <div className="mt-4 gap-3 flex flex-col">
+        {contacts.map((contact) => (
+          <ContactCard key={contact.id} contact={contact}/>
+        ))}
       </div>
     </div>
   );
