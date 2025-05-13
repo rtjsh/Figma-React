@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react'
+import { useDebounce } from 'react-use';
 import Search from './components/Search'
 import Spinner from './components/Spinner';
 import MovieCard from './components/MovieCard';
@@ -23,6 +24,11 @@ const App = () => {
 
   const [MovieList, setMovieList] = useState([]);
   const [isLoading, setisLoading] = useState(false)
+  const [debounceSearchTerm, setDebounceSearchTerm] = useState('')
+  useDebounce(()=>setDebounceSearchTerm(SearchTerm),500,[SearchTerm])
+  // "Wait until the user stops typing for 500ms, and then update DebounceSearchTerm to match SearchTerm to prevent making too many API requests"
+
+
 
   const fetchMovies = async(query="")=>{
 
@@ -60,8 +66,8 @@ const App = () => {
     }
   }
   useEffect(()=>{
-    fetchMovies(SearchTerm);
-  },[SearchTerm]);
+    fetchMovies(debounceSearchTerm);
+  },[debounceSearchTerm]);
   return (
     <main>
         <div className='pattern'>
