@@ -1,11 +1,9 @@
-
-
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 @import "tailwindcss";
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -61,7 +59,7 @@
 
   .wrapper {
     @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
-    background-image: url('/images/hero-bg.png');
+    background-image: url("/images/hero-bg.png");
     background-size: cover;
     background-position: center;
 
